@@ -8,6 +8,8 @@ def main():
     my_output = f"Hello {my_input}"
     print(os.listdir())
 
+    open('map.html', 'w').write('esto es una tiza de mapa')
+
     print(f"::set-output name=myOutput::{my_output}")
 
 
