@@ -34,6 +34,35 @@ jobs:
         myInput: world
 ```
 
+### Usage
+
+```yaml
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  generate-jsons:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@master
+
+      - uses: hiancdtrsnm/covid-19-action-python@master
+
+      - name: Update jsons
+        run: |
+          git config --global user.name 'hiancdtrsn'
+          git config --global user.email 'hiancdtrsn@gmail.com'
+          git checkout -b gh-pages
+          git add .
+          git commit -am "Create deploy data"
+          git push -f --set-upstream origin gh-pages
+```
+
 ### Inputs
 
 | Input                                             | Description                                        |
